@@ -49,7 +49,7 @@ const PhotoCard = (photo: Photo) => {
           </SharedElement>
         </AnimatableView>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => savePhoto(photo)}
         style={styles.downloadButton}
         disabled={downloaded}>
@@ -58,7 +58,7 @@ const PhotoCard = (photo: Photo) => {
           size={30}
           color="black"
         />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   )
 }
