@@ -7,7 +7,6 @@ import {
   Linking,
   Button,
   TouchableOpacity,
-  Alert,
 } from 'react-native'
 import { NavigationInjectedProps, NavigationScreenProp } from 'react-navigation'
 import { SharedElement } from 'react-navigation-shared-element'
@@ -20,6 +19,7 @@ import styles from './styles'
 import { Photo } from '../../models'
 import { ParallaxHeader } from '../../containers'
 import { BrowserService } from '../../services'
+import { SafariViewService } from '../../services'
 import { ImageGallery } from '../../components'
 
 type GalleryImage = {
@@ -40,7 +40,7 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
     'https://careers.microsoft.com/us/en/login',
   ]
 
-  const BrowserServices = [BrowserService]
+  const BrowserServices = [BrowserService, SafariViewService]
 
   const openUrl = (id: string) => {
     const index = parseInt(id)
