@@ -44,4 +44,13 @@ export default StyleSheet.create({
     padding: 10,
     backgroundColor: 'gray',
   },
+  text: {
+    padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 })

@@ -21,6 +21,7 @@ import { ParallaxHeader } from '../../containers'
 import { BrowserService } from '../../services'
 import { SafariViewService } from '../../services'
 import { ImageGallery } from '../../components'
+import { links, logout } from './data'
 
 type GalleryImage = {
   id: string
@@ -34,17 +35,16 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
   const { id, email, photo, first, last } = photoInfo
   const [count, setCount] = useState(0)
 
-  const links = [
-    'https://www.google.com/',
-    'https://teams.microsoft.com/',
-    'https://careers.microsoft.com/us/en/login',
-  ]
-
   const BrowserServices = [BrowserService, SafariViewService]
 
-  const openUrl = (id: string) => {
+  const openUrl = (id: string, flag: boolean) => {
     const index = parseInt(id)
     const library = BrowserServices[index]
+
+    if (flag) {
+      library.openUrl(logout)
+      return
+    }
 
     setCount(count + 1)
     if (count > 15) {
@@ -110,16 +110,25 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
               <SharedElement id={id}>
                 <TouchableOpacity onPress={() => setEnableGallery(true)}>
                   <View style={styles.card}>
-                    <Image
+                    {/* <Image
                       style={styles.photo}
                       resizeMode="contain"
                       source={{ uri: photo }}
-                    />
+                    /> */}
                   </View>
                 </TouchableOpacity>
               </SharedElement>
-              <Button onPress={() => openUrl(id)} title="Open Url" />
-              <Text>iOS inApp Consumption POC</Text>
+              <Button
+                onPress={() => openUrl(id, false)}
+                title="Open Native Browser"
+              />
+              <Button
+                onPress={() => openUrl(id, true)}
+                title="LinkedIn Learning Logout"
+              />
+              <View style={styles.text}>
+                <Text style={styles.titleText}>iOS inApp Consumption POC</Text>
+              </View>
             </View>
           )}
         />
