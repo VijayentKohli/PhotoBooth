@@ -14,6 +14,22 @@ const PhotoListScreen = () => {
   const items = usePhotoList()
   const netInfo = useNetInfo()
 
+  if (items.length > 0) {
+    items[0].last = 'react-native-inappbrowser-reborn'
+    items[0].first = ''
+
+    items[1].last = 'react-native-safari-view'
+    items[1].first = ''
+
+    items[2].last = 'react-native-wkwebview-reborn'
+    items[2].first = ''
+
+    items[3].last = 'react-native-wkwebview'
+    items[3].first = ''
+
+    items.splice(4)
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
