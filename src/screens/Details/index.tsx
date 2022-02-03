@@ -34,25 +34,35 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
   const { id, email, photo, first, last } = photoInfo
   const [count, setCount] = useState(0)
 
-  const openUrl = () => {
-    setCount(count + 1)
-    if (count > 10) {
-      setCount(0)
-      Alert.alert('Count>10')
-    }
-    if (count % 3 == 0) {
-      photo &&
-        BrowserService.openUrl('https://careers.microsoft.com/us/en/login')
-    } else if (count % 3 == 1) {
-      photo && BrowserService.openUrl('https://teams.microsoft.com/')
-    } else {
-      photo && BrowserService.openUrl('https://www.google.com/')
-    }
+  const links = [
+    'https://www.google.com/',
+    'https://teams.microsoft.com/',
+    'https://careers.microsoft.com/us/en/login',
+  ]
+
+  const BrowserServices = [BrowserService]
+
+  const openUrl = (id: string) => {
+    const index = parseInt(id)
+    const library = BrowserServices[index]
 
     setCount(count + 1)
-    if (count > 10) {
+    if (count > 15) {
       setCount(0)
-      Alert.alert('Count>10')
+    }
+
+    const curLink = links[count % 5]
+
+    if (count % 5 == 0) {
+      photo && library.openUrl(curLink)
+    } else if (count % 5 == 1) {
+      photo && library.openUrl(curLink)
+    } else if (count % 5 == 2) {
+      photo && library.openUrl(curLink)
+    } else if (count % 5 == 4) {
+      photo && library.openUrl(curLink)
+    } else {
+      photo && library.openUrl(curLink)
     }
   }
 
@@ -108,8 +118,8 @@ const DetailsScreen = ({ navigation }: NavigationInjectedProps) => {
                   </View>
                 </TouchableOpacity>
               </SharedElement>
-              <Button onPress={openUrl} title="Open Url" />
-              <Text>{R.strings.details.LOREM_IPSUM}</Text>
+              <Button onPress={() => openUrl(id)} title="Open Url" />
+              <Text>iOS inApp Consumption POC</Text>
             </View>
           )}
         />
