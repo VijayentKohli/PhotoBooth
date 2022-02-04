@@ -16,19 +16,19 @@ const PhotoListScreen = () => {
 
   if (items.length > 0) {
     items[0].last = 'react-native-inappbrowser-reborn'
-    items[0].first = ''
+    items[0].first = 'POC'
 
     items[1].last = 'react-native-safari-view'
-    items[1].first = ''
+    items[1].first = 'POC'
 
     items[2].last = 'react-native-wkwebview-reborn'
-    items[2].first = ''
+    items[2].first = 'POC'
 
     items[3].last = 'react-native-wkwebview'
-    items[3].first = ''
+    items[3].first = 'POC'
 
     items[4].last = 'react-native-webview'
-    items[4].first = ''
+    items[4].first = 'POC'
 
     items.splice(6)
   }
