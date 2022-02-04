@@ -27,7 +27,10 @@ const PhotoListScreen = () => {
     items[3].last = 'react-native-wkwebview'
     items[3].first = ''
 
-    items.splice(4)
+    items[4].last = 'react-native-webview'
+    items[4].first = ''
+
+    items.splice(6)
   }
 
   return (

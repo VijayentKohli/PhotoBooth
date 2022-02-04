@@ -7,7 +7,6 @@ export const usePhotoList = function (): Photo[] {
 
   useEffect(function (): any {
     ApiService.getPhotos().then(setItems)
-    items.splice(4)
   }, [])
 
   return items

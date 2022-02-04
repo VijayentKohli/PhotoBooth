@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const windowWidth: number = Dimensions.get('window').width
 
 export default StyleSheet.create({
   container: {
@@ -52,5 +54,22 @@ export default StyleSheet.create({
   titleText: {
     fontSize: 20,
     fontWeight: 'bold',
+  },
+
+  webviewcontainer: {
+    flex: 1,
+    backgroundColor: 'white',
+    height: 100,
+    padding: 10,
+    width: windowWidth,
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+  webViewStyle: {
+    flex: 1,
+    width: windowWidth,
+    opacity: 1,
+    backgroundColor: 'white',
   },
 })
